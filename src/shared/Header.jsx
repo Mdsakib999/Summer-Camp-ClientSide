@@ -65,10 +65,10 @@ const Header = () => {
 
         <p className="font-bold text-2xl cursor-pointer">
           Sports
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
             Summer
           </span>
-          Comp
+          Camp
         </p>
       </div>
       <div className="navbar-center hidden lg:flex">
