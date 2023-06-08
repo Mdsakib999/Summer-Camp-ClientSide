@@ -82,6 +82,9 @@ const Header = () => {
           <li>
             <Link to="/blog">Blog</Link>
           </li>
+          <li>
+            <Link to="/login">login</Link>
+          </li>
           {/* {user && (
             <>
               <li>
