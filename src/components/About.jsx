@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 
 const About = () => {
     return (
-        <div className="b my-11 lg:flex justify-evenly items-center">
+        <div className="rounded-lg shadow-md py-10 my-16 lg:flex justify-evenly items-center bg-[url('https://www.simpleimageresizer.com/_uploads/photos/676abd94/gradient-background-png-transparent-png-100_900x500.png')] bg-cover bg-no-repeat">
         
         <div>
           <Lottie animationData={animation} loop={true}></Lottie>

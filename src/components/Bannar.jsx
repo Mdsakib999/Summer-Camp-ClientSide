@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 const Bannar = () => {
     return (
-        <Carousel>
+        <Carousel className='mt-10'>
         <div className='rounded-md'>
             <img className='rounded-md' src="https://www.simpleimageresizer.com/_uploads/photos/e047f9f2/banner-summerCamp-2_1200x500.jpg" />
             

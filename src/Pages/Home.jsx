@@ -5,8 +5,8 @@ import About from '../components/About';
 const Home = () => {
     return (
         <div>
-            <About></About>
             <Bannar></Bannar>
+            <About></About>
         </div>
     );
 };
