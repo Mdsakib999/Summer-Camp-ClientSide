@@ -38,10 +38,10 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/allToys">All Toy's</Link>
+            <Link to="/classes">Classes</Link>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link to="/instructors">Instructors</Link>
           </li>
           {/* {user && (
             <>
@@ -77,10 +77,10 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/allToys">All Toy's</Link>
+            <Link to="/classes">Classes</Link>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link to="/instructors">Instructors</Link>
           </li>
           <li>
             <Link to="/login">login</Link>
