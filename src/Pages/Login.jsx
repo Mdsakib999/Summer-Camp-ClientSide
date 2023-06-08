@@ -34,7 +34,7 @@ const Login = () => {
             {...register("username")}
           />
           {errors.username && (
-            <p className="text-red-500 text-xs italic">{errors.username.message}</p>
+            <p className="text-red-500 text-xs italic"></p>
           )}
         </div>
         <div className="mb-4">
@@ -52,7 +52,7 @@ const Login = () => {
             {...register("password", { required: true })}
           />
           {errors.password && (
-            <p className="text-red-500 text-xs italic">{errors.password.message}</p>
+            <p className="text-red-500 text-xs italic"></p>
           )}
         </div>
         <div className="flex items-center justify-between">

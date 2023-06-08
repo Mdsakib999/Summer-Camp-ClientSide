@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
 
 const Register = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const {createUser} = useContext(AuthContext);
 
     const onSubmit = (data) => {
       console.log(data);
+      createUser(data.email, data.password)
+      .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
     };
 
     return (
@@ -30,13 +37,12 @@ const Register = () => {
             type="text"
             name="username"
             placeholder="Your Name"
-            id="username"
             {...register("username", { required: true })}
           />
-          {errors.username && (
-            <p className="text-red-500 text-xs italic">{errors.username.message}</p>
-          )}
+          {errors.username && <span className="text-red-500 text-xs italic">Name is required</span>}
+          
         </div>
+
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -50,12 +56,11 @@ const Register = () => {
             name="email"
             placeholder="Your Email"
             id="email"
-            {...register("Email", { required: true })}
+            {...register("email", { required: true })}
           />
-          {errors.username && (
-            <p className="text-red-500 text-xs italic">{errors.username.message}</p>
-          )}
+          {errors.email && <span className="text-red-500 text-xs italic">Email is required</span>}
         </div>
+
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -69,13 +74,18 @@ const Register = () => {
             name="password"
             placeholder="Enter Your Password"
             id="password"
-            {...register("password", { required: true })}
+            {...register("password", { 
+                required: true, 
+                minLength: 6,
+                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[a-z])(?=.*[0-9])/
+             })}
           />
-          {errors.password && (
-            <p className="text-red-500 text-xs italic">{errors.password.message}</p>
-          )}
+          {errors.password?.type === "required" && <span className="text-red-500 text-xs italic">Password is required</span>}
+          {errors.password?.type === "minLength" && <span className="text-red-500 text-xs italic">Password should be 6 character or more</span>}
+          {errors.password?.type === "pattern" && <span className="text-red-500 text-xs italic">Should have one upper case, one lower case, one special character and one number</span>}
         </div>
-        <div className="mb-4">
+
+        {/* <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="ConfirmPassword"
@@ -89,10 +99,9 @@ const Register = () => {
             id="ConfirmPassword"
             {...register("ConfirmPassword", { required: true })}
           />
-          {errors.password && (
-            <p className="text-red-500 text-xs italic">{errors.password.message}</p>
-          )}
-        </div>
+          {errors.ConfirmPassword !== errors.password && <span className="text-red-500 text-xs italic">Password doesn't match</span>}
+        </div> */}
+
         <div className="mb-4">
         <label className="text-lg font-medium ">Photo Url:</label>
           <input
@@ -102,6 +111,7 @@ const Register = () => {
             type="url"
             // defaultValue="https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600"
           />
+          {errors.image && <span className="text-red-500 text-xs italic"> is required</span>}
         </div>
         <div className="mb-4">
           <label
@@ -116,7 +126,6 @@ const Register = () => {
             name="number"
             placeholder="Enter your Phone Number"
             id="number"
-            {...register("number", { required: true })}
           />
           
         </div>
@@ -132,15 +141,14 @@ const Register = () => {
             type="text"
             name="text"
             placeholder="Enter your Address"
-            id="text"
-            {...register("text", { required: true })}
           />
         </div>
+
         <div className="mb-4">
         <label className="text-lg font-medium ">Gender:</label>
           <select
             className="text-input focus:outline-none focus:shadow-outline border p-2 rounded-lg m-5"
-            {...register("category")}
+            {...register("gender", { required: true })}
           >
             <option value="male">Male</option>
             <option value="Female">Female</option>
