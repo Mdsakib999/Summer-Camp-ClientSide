@@ -10,7 +10,7 @@ const About = () => {
       heading={"About US"}
       subHeading={"why should join us"}
       ></Title>
-      <div className="rounded-lg shadow-md py-10 mb-10 lg:flex justify-evenly items-center bg-[url('https://www.simpleimageresizer.com/_uploads/photos/676abd94/gradient-background-png-transparent-png-100_900x500.png')] bg-cover bg-no-repeat">
+      <div className="rounded-lg shadow-md py-10 mb-10 lg:flex justify-evenly items-center bg-[url('https://i.ibb.co/rFWpkdj/gradient-background-png-transparent-png-100-1050x500.png')] bg-cover bg-no-repeat">
         <div>
           <Lottie animationData={animation} loop={true}></Lottie>
         </div>

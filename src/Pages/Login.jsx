@@ -1,42 +1,75 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const {signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [error, setError] = useState('');
+
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     console.log(data);
+    signIn(data.email, data.password)
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Login Successful',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      navigate(from, {replace: true}); 
+    })
+    .catch((error) => {
+      // setError(error.message);
+      console.log(error.message);
+      setError(error.message);
+    });
   };
-
 
 
   return (
     <div className="lg:w-[40%] mx-auto">
-        <h1 className="text-4xl font-semibold my-12 text-center">Login Page</h1>
+      <h1 className="text-4xl font-semibold my-12 text-center">Login Page</h1>
       <form
         className="bg-slate-50 shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
+            htmlFor="email"
           >
-            Username
+            Email
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            name="username"
-            id="username"
-            {...register("username")}
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            id="email"
+            {...register("email", { required: true })}
           />
-          {errors.username && (
-            <p className="text-red-500 text-xs italic"></p>
+          {errors.email && (
+            <span className="text-red-500 text-xs italic">
+              Email is required
+            </span>
           )}
         </div>
+
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -52,9 +85,12 @@ const Login = () => {
             {...register("password", { required: true })}
           />
           {errors.password && (
-            <p className="text-red-500 text-xs italic"></p>
+            <span className="text-red-500 text-xs italic">
+              Password is required
+            </span>
           )}
         </div>
+        <p className="text-red-600 text-center font-bold">{error}</p>
         <div className="flex items-center justify-between">
           <button
             className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -65,7 +101,10 @@ const Login = () => {
         </div>
         <p className="mt-4">
           New to RoboKingdom?
-           <Link className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 font-bold ml-2" to="/register">
+          <Link
+            className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 font-bold ml-2"
+            to="/register"
+          >
             Register
           </Link>
         </p>

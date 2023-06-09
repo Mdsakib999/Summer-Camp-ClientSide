@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
 
 const Header = () => {
-//   const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handelLogout = () => {
     logOut()
@@ -43,17 +44,14 @@ const Header = () => {
           <li>
             <Link to="/instructors">Instructors</Link>
           </li>
-          {/* {user && (
+          {user && (
             <>
               <li>
-                <Link to="/myToys">My Toy's</Link>
+                <Link to="/dashboard ">Dashboard </Link>
               </li>
 
-              <li>
-                <Link to="/updateToys">Add a Toy</Link>
-              </li>
             </>
-          )} */}
+          )}
           </ul>
         </div>
         <div className="w-8 rounded-full mr-2 cursor-pointer">
@@ -82,40 +80,36 @@ const Header = () => {
           <li>
             <Link to="/instructors">Instructors</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/login">login</Link>
-          </li>
-          {/* {user && (
+          </li> */}
+          {user && (
             <>
               <li>
-                <Link to="/myToys">My Toy's</Link>
+              <Link to="/dashboard ">Dashboard </Link>
               </li>
 
-              <li>
-                <Link to="/updateToys">Add a Toy</Link>
-              </li>
             </>
-          )} */}
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        {/* {user && (
+        {user && (
           <Link>
             <div className="avatar">
-              <div title={user.displayName} className="w-12 mr-5 mt- rounded-full">
-                <img src={user.photoURL} />
+              <div title={user?.displayName} className="w-12 mr-5 mt- rounded-full">
+                <img src={user?.photoURL} />
               </div>
             </div>
             
           </Link>
-        )} */}
+        )}
 
-        {/* {user ? (
+        {user ? (
           <Link to="/">
             <button
               onClick={handelLogout}
-              className="px-4 py-2 rounded-md
-          text-white font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 ..."
+              className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Logout
             </button>
@@ -123,13 +117,12 @@ const Header = () => {
         ) : (
           <Link to="/login">
             <button
-              className="px-4 py-2 rounded-md
-          text-white font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 ..."
+              className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Login
             </button>
           </Link>
-        )} */}
+        )}
       </div>
     </div>
   );
