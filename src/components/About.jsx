@@ -5,7 +5,7 @@ import Title from "./Title";
 
 const About = () => {
   return (
-    <section>
+    <section >
       <Title
       heading={"About US"}
       subHeading={"why should join us"}

@@ -1,0 +1,51 @@
+[
+    {
+        "teacherName": "Mohammed Salahuddin",
+        "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "numberOfClass": 3,
+        "teacherEmail": "Mohammed@Salahuddin.com",
+        "sports": "cricket "
+      },
+    {
+        "teacherName": "Pep Gardiola",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "numberOfClass": 3,
+        "teacherEmail": "Pep@Gardiola.com",
+        "sports": "football"
+      },
+    {
+        "teacherName": "Gulbadin Naeb",
+        "image": "https://i.ibb.co/hYqrxYk/swming-400x400-1-removebg-preview.png",
+        "numberOfClass": 2,
+        "teacherEmail": "Gulbadin@naeb.com",
+        "sports": "swimming"
+      },
+    {
+        "teacherName": "Mohammed Hasan",
+        "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "numberOfClass": 2,
+        "teacherEmail": "md@hasan.com",
+        "sports": "cricket "
+      },
+    {
+        "teacherName": "Osimen tite",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "numberOfClass": 3,
+        "teacherEmail": "Osimen@tite.com",
+        "sports": "football"
+      },
+    {
+        "teacherName": "Tood Smith",
+        "image": "https://i.ibb.co/hYqrxYk/swming-400x400-1-removebg-preview.png",
+        "numberOfClass": 3,
+        "teacherEmail": "tood@smith.com",
+        "sports": "swimming"
+      },
+      {
+        "teacherName": "Osimen tite",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "numberOfClass": 3,
+        "teacherEmail": "Osimen@tite.com",
+        "sports": "football"
+      }
+]
