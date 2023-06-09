@@ -11,35 +11,56 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const {signIn} = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     console.log(data);
     signIn(data.email, data.password)
-    .then(result => {
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        // setError(error.message);
+        console.log(error.message);
+        setError(error.message);
+      });
+  };
+
+
+  const handelGoogleSignIn = ()=>{
+    googleSignIn()
+    .then((result) => {
       const loggedUser = result.user;
+      
       console.log(loggedUser);
       Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Login Successful',
+        position: "top-end",
+        icon: "success",
+        title: "Login Successful",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
-      navigate(from, {replace: true}); 
+      navigate(from, { replace: true });
     })
     .catch((error) => {
-      // setError(error.message);
       console.log(error.message);
       setError(error.message);
     });
-  };
-
+  }
 
   return (
     <div className="lg:w-[40%] mx-auto">
@@ -100,7 +121,7 @@ const Login = () => {
           </button>
         </div>
         <p className="mt-4">
-          New to RoboKingdom?
+          New to Summer Camp?
           <Link
             className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 font-bold ml-2"
             to="/register"
@@ -109,6 +130,15 @@ const Login = () => {
           </Link>
         </p>
       </form>
+
+      <div className="text-center">
+      <button
+      onClick={handelGoogleSignIn}
+        className="shadow-xl bg-slate-100 rounded-lg ml-6 py-2 px-5 font-bold mb-12"
+      >
+        <img className="inline mr-2 w-[25px]" src="https://i.ibb.co/TBGwKQw/search.png" alt="fff" /> Login with Google
+      </button>
+      </div>
     </div>
   );
 };

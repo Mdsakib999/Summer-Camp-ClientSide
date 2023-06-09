@@ -9,7 +9,7 @@ const Footer = () => {
     <a className="link link-hover">Jobs</a>
   </div> 
 
-  <div className="flex items-center">
+  <div className="flex items-center gap-5">
       <img className="w-[80px]" src="https://i.ibb.co/cCyNzx3/summer-camp-logo.png" alt="" />
       <div className="font-semibold text-left">
         <p>Summer Camp Authority LTD.</p>

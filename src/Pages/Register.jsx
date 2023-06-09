@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const {createUser,  userProfileUpdate} = useContext(AuthContext);
+    const {createUser, googleSignIn, userProfileUpdate} = useContext(AuthContext);
+    const [error, setError] = useState("")
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const onSubmit = (data) => {
       console.log(data);
@@ -34,6 +37,27 @@ const Register = () => {
         .catch(error => console.log(error)) 
       })
     };
+
+    const handelGoogleSignIn = ()=>{
+      googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        
+        console.log(loggedUser);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Registered Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
+    }
 
     return (
         <div className="lg:w-[40%] mx-auto">
@@ -188,6 +212,16 @@ const Register = () => {
           </Link>
         </p>
       </form>
+
+      <div className="text-center">
+      <button
+      onClick={handelGoogleSignIn}
+        className="shadow-lg hover:shadow-xl bg-slate-100 rounded-lg ml-6 py-2 px-5 font-bold mb-12"
+      >
+        <img className="inline mr-2 w-[25px]" src="https://i.ibb.co/TBGwKQw/search.png" alt="fff" /> SingUp with Google
+      </button>
+      </div>
+
     </div>
     );
 };

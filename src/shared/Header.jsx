@@ -70,7 +70,7 @@ const Header = () => {
         </p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="font-bold menu menu-horizontal px-1">
+        <ul className="text-lg font-bold menu menu-horizontal px-1">
           <li>
             <Link to="/">Home</Link>
           </li>
