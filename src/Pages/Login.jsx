@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
 
+
+
 const Login = () => {
   const {
     register,
@@ -15,6 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [error, setError] = useState("");
+  const [show, setShow] = useState(true);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -91,7 +94,7 @@ const Login = () => {
           )}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 relative">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="password"
@@ -100,11 +103,14 @@ const Login = () => {
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="password"
+            type={show? "password" : "text"}
             name="password"
             id="password"
             {...register("password", { required: true })}
           />
+          <div className="cursor-pointer absolute right-3 top-9" onClick={() => setShow(!show)}>
+            {show? <i className="fa-solid fa-eye"></i> : <i class="fa-solid fa-eye-slash"></i>}
+          </div>
           {errors.password && (
             <span className="text-red-500 text-xs italic">
               Password is required
