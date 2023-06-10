@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../shared/Header";
-import{ FaClock, FaHome, FaShoppingCart, FaWallet } from 'react-icons/fa'
+import{ FaClock, FaHome, FaShoppingCart, FaUser, FaWallet } from 'react-icons/fa'
 
 const Dashboard = () => {
   return (
@@ -9,7 +9,7 @@ const Dashboard = () => {
       <Header></Header>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content px-10 flex-col items-center ">
           <Outlet></Outlet>
           <label
             htmlFor="my-drawer-2"
@@ -22,6 +22,9 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
+            <li>
+            <Link to='/dashboard/allUsers'> <FaUser/> All Users</Link>
+            </li>
             <li>
             <Link to='/dashboard/mycart'> <FaHome/> MY Home</Link>
             </li>

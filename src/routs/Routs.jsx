@@ -9,6 +9,7 @@ import PopurarInstructors from "../components/PopurarInstructors";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart";
+import AllUsers from "../Pages/Dashboard/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
         path: "mycart",
         element: <MyCart></MyCart>,
       },
+      {
+        path: "allUsers",
+        element: <AllUsers></AllUsers>
+      }
     ],
   },
 ]);
