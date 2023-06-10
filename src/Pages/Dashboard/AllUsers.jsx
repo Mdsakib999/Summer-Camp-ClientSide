@@ -13,8 +13,31 @@ const AllUsers = () => {
       });
   }, []);
 
+  const [remainUsers, setRemainUser] = useState([]);
+
+  const handelDelete = (id) =>{
+
+    const yes = confirm('Are you sure?');
+    if(yes) {
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount > 0) {
+                    alert('Deleted successfully');
+                    const remain = remainUsers.filter(remainUser => remainUser._id !== id);
+                    setRemainUser(remain);
+
+            }
+        });
+    }
+    console.log(id);
+  }
+
   return (
-    <div className="b">
+    <div className="">
       <Title heading={"ALL USERS"} subHeading={"All Our Users"}></Title>
       
       <table className="table w-full mt-[-50px]">
@@ -50,7 +73,7 @@ const AllUsers = () => {
 
                 </div>
               </td>
-              <td className=""> <i class="text-2xl fa-solid fa-trash"></i> {}</td>
+              <td className=""> <button onClick={()=> handelDelete(allUser._id)}><i className="text-2xl fa-solid fa-trash"></i></button> </td>
             </tr>
           ))}
         </tbody>
