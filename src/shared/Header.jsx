@@ -86,7 +86,7 @@ const Header = () => {
           {user && (
             <>
               <li>
-              <Link to="/dashboard ">Dashboard </Link>
+              <Link to="/dashboard/mycart ">Dashboard </Link>
               </li>
 
             </>

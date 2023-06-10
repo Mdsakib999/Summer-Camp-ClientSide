@@ -12,9 +12,9 @@ const Footer = () => {
   <div className="flex items-center gap-5">
       <img className="w-[80px]" src="https://i.ibb.co/cCyNzx3/summer-camp-logo.png" alt="" />
       <div className="font-semibold text-left">
-        <p>Summer Camp Authority LTD.</p>
-        <p>+018 125 48963</p>
-        <p>Chittagong, Bangladesh</p>
+        <p className="text-xl">Summer Camp Authority LTD.</p>
+        <p><i className="fa-solid fa-phone mr-2"></i> +018 125 48963</p>
+        <p><i className="fa-solid fa-location-dot mr-4"></i> Chittagong, Bangladesh</p>
 
       </div>
   </div>
