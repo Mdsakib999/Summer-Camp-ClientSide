@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Title from "../../components/Title";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -15,6 +16,8 @@ const AllUsers = () => {
 
   const [remainUsers, setRemainUser] = useState([]);
 
+  const[isDisable, setDisable] = useState(false)
+
   const handelDelete = (id) =>{
 
     const yes = confirm('Are you sure?');
@@ -26,7 +29,13 @@ const AllUsers = () => {
         .then(data => {
             console.log(data);
             if(data.deletedCount > 0) {
-                    alert('Deleted successfully');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Deleted Successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
                     const remain = remainUsers.filter(remainUser => remainUser._id !== id);
                     setRemainUser(remain);
 
@@ -34,7 +43,33 @@ const AllUsers = () => {
         });
     }
     console.log(id);
-  }
+  };
+
+
+  const makeAdmin = (id) =>{
+
+    fetch(`http://localhost:5000/users/admin/${id}`, {
+        method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.modifiedCount) {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Made Admin Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            //   const remain = remainUsers.filter(remainUser => remainUser._id !== id);
+            //     setRemainUser(remain);
+            setDisable(true);
+        }
+    })
+    
+
+  };
 
   return (
     <div className="">
@@ -67,8 +102,8 @@ const AllUsers = () => {
               <td>{allUser.name}</td>
               <td>{allUser.role}</td>
               <td>
-                <div>
-                    <button className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 mr-3 hover:bg-slate-100 ">Admin</button>
+                <div disabled={isDisable}>
+                    <button  onClick={() => makeAdmin(allUser._id)} className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 mr-3 hover:bg-slate-100 ">Admin</button>
                     <button className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 hover:bg-slate-100">Teacher</button>
 
                 </div>
