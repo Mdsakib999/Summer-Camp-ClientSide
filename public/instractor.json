@@ -2,49 +2,188 @@
     {
         "teacherName": "Mohammed Salahuddin",
         "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Power Hitting",
+        "seatsAvailable": 10,
+        "joinStudent": 20,
         "numberOfClass": 3,
         "teacherEmail": "Mohammed@Salahuddin.com",
         "sports": "cricket "
       },
     {
+        "teacherName": "Mohammed Salahuddin",
+        "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Fielding",
+        "seatsAvailable": 5,
+        "joinStudent": 25,
+        "numberOfClass": 3,
+        "teacherEmail": "Mohammed@Salahuddin.com",
+        "sports": "cricket "
+      },
+    {
+        "teacherName": "Mohammed Salahuddin",
+        "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Fast Balling",
+        "seatsAvailable": 20,
+        "joinStudent": 10,
+        "numberOfClass": 3,
+        "teacherEmail": "Mohammed@Salahuddin.com",
+        "sports": "cricket "
+      },
+
+
+    {
         "teacherName": "Pep Gardiola",
         "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Free Kick",
+        "seatsAvailable": 15,
+        "joinStudent": 15,
         "numberOfClass": 3,
         "teacherEmail": "Pep@Gardiola.com",
         "sports": "football"
       },
     {
+        "teacherName": "Pep Gardiola",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Dribbing",
+        "seatsAvailable": 7,
+        "joinStudent": 23,
+        "numberOfClass": 3,
+        "teacherEmail": "Pep@Gardiola.com",
+        "sports": "football"
+      },
+    {
+        "teacherName": "Pep Gardiola",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Penalty Kick",
+        "seatsAvailable": 20,
+        "joinStudent": 10,
+        "numberOfClass": 3,
+        "teacherEmail": "Pep@Gardiola.com",
+        "sports": "football"
+      },
+
+
+    {
         "teacherName": "Gulbadin Naeb",
         "image": "https://i.ibb.co/hYqrxYk/swming-400x400-1-removebg-preview.png",
+        "classImage": "",
+        "className": "Butterfly",
+        "seatsAvailable": 8,
+        "joinStudent": 22,
         "numberOfClass": 2,
         "teacherEmail": "Gulbadin@naeb.com",
         "sports": "swimming"
       },
     {
+        "teacherName": "Gulbadin Naeb",
+        "image": "https://i.ibb.co/hYqrxYk/swming-400x400-1-removebg-preview.png",
+        "classImage": "",
+        "className": "Sidestroke",
+        "seatsAvailable": 9,
+        "joinStudent": 21,
+        "numberOfClass": 2,
+        "teacherEmail": "Gulbadin@naeb.com",
+        "sports": "swimming"
+      },
+
+      
+    {
         "teacherName": "Mohammed Hasan",
         "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Fitness",
+        "seatsAvailable": 21,
+        "joinStudent": 9,
         "numberOfClass": 2,
         "teacherEmail": "md@hasan.com",
-        "sports": "cricket "
+        "sports": "cricket"
       },
+    {
+        "teacherName": "Mohammed Hasan",
+        "image": "https://i.ibb.co/Q6YKnJ1/criket-salahuddin-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Spin Balling",
+        "seatsAvailable": 6,
+        "joinStudent": 24,
+        "numberOfClass": 2,
+        "teacherEmail": "md@hasan.com",
+        "sports": "cricket"
+      },
+
+
     {
         "teacherName": "Osimen tite",
         "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
-        "numberOfClass": 3,
+        "classImage": "",
+        "className": "Goal Keeping",
+        "seatsAvailable": 3,
+        "joinStudent": 27,
+        "numberOfClass": 2,
         "teacherEmail": "Osimen@tite.com",
         "sports": "football"
       },
     {
+        "teacherName": "Osimen tite",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Running",
+        "seatsAvailable": 25,
+        "joinStudent": 5,
+        "numberOfClass": 2,
+        "teacherEmail": "Osimen@tite.com",
+        "sports": "football"
+      },
+
+
+    {
         "teacherName": "Tood Smith",
         "image": "https://i.ibb.co/hYqrxYk/swming-400x400-1-removebg-preview.png",
-        "numberOfClass": 3,
+        "classImage": "",
+        "className": "Sidestroke",
+        "seatsAvailable": 8,
+        "joinStudent": 23,
+        "numberOfClass": 2,
         "teacherEmail": "tood@smith.com",
         "sports": "swimming"
+      },
+    {
+        "teacherName": "Tood Smith",
+        "image": "https://i.ibb.co/hYqrxYk/swming-400x400-1-removebg-preview.png",
+        "classImage": "",
+        "className": "Trudgen",
+        "seatsAvailable": 25,
+        "joinStudent": 5,
+        "numberOfClass": 2,
+        "teacherEmail": "tood@smith.com",
+        "sports": "swimming"
+      },
+
+
+      {
+        "teacherName": "Osimen tite",
+        "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
+        "classImage": "",
+        "className": "Long Shot",
+        "seatsAvailable": 5,
+        "joinStudent": 26,
+        "numberOfClass": 2,
+        "teacherEmail": "Osimen@tite.com",
+        "sports": "football"
       },
       {
         "teacherName": "Osimen tite",
         "image": "https://i.ibb.co/Cw5Pw4J/football-pep-400x400-removebg-preview.png",
-        "numberOfClass": 3,
+        "classImage": "",
+        "className": "Passing",
+        "seatsAvailable": 15,
+        "joinStudent": 15,
+        "numberOfClass": 2,
         "teacherEmail": "Osimen@tite.com",
         "sports": "football"
       }
