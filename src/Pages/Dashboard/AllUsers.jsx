@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const [allUsers, setAllUsers] = useState([]);
+  const[isDisable, setDisable] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/users")
@@ -16,7 +17,6 @@ const AllUsers = () => {
 
   const [remainUsers, setRemainUser] = useState([]);
 
-  const[isDisable, setDisable] = useState(false)
 
   const handelDelete = (id) =>{
 
@@ -71,6 +71,32 @@ const AllUsers = () => {
 
   };
 
+
+  const makeTeacher = (id) =>{
+
+    fetch(`http://localhost:5000/users/instructor/${id}`, {
+        method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.modifiedCount) {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Made Instructor Successfully",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+            
+            setDisable(true);
+        }
+        
+    })
+    
+
+  };
+
   return (
     <div className="">
       <Title heading={"ALL USERS"} subHeading={"All Our Users"}></Title>
@@ -102,9 +128,10 @@ const AllUsers = () => {
               <td>{allUser.name}</td>
               <td>{allUser.role}</td>
               <td>
-                <div disabled={isDisable}>
-                    <button  onClick={() => makeAdmin(allUser._id)} className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 mr-3 hover:bg-slate-100 ">Admin</button>
-                    <button className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 hover:bg-slate-100">Teacher</button>
+                <div>
+                    <button disabled={allUser.role == 'admin'} onClick={() => makeAdmin(allUser._id)} className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 mr-3 hover:bg-slate-100 ">Admin</button>
+
+                    <button disabled={allUser.role == 'Instructor'} onClick={() => makeTeacher(allUser._id)} className="p-2 rounded-lg font-semibold shadow-lg bg-slate-200 hover:bg-slate-100">Teacher</button>
 
                 </div>
               </td>

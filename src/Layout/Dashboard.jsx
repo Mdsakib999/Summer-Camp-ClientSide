@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../shared/Header";
-import{ FaClock, FaHome, FaShoppingCart, FaUser, FaWallet } from 'react-icons/fa'
+import {
+  FaClock,
+  FaHome,
+  FaShoppingCart,
+  FaUser,
+  FaWallet,
+} from "react-icons/fa";
+import { AuthContext } from "../AuthProvider";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const [currentUser, setCurrentUser] = useState({});
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:5000/users/${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setCurrentUser(data);
+        });
+    }
+  }, [user?.email]);
+
   return (
     <div>
       <Header></Header>
@@ -22,21 +43,84 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
-            <li>
-            <Link to='/dashboard/allUsers'> <FaUser/> All Users</Link>
+
+            {currentUser.role == "admin" ? (
+              <>
+                <li>
+              <Link to="/dashboard/allUsers">
+                {" "}
+                <FaUser /> All Users amdin
+              </Link>
             </li>
             <li>
-            <Link to='/dashboard/mycart'> <FaHome/> MY Home</Link>
+              <Link to="/dashboard/mycart">
+                {" "}
+                <FaHome /> All classes admin
+              </Link>
+            </li>
+              </>
+            ) : (
+              <></>
+            )}
+
+            {currentUser.role == "Instructor" ? (
+              <>
+                <li>
+                  <Link to='/dashboard/singleInsClass'>
+                    <FaClock /> My Classes ins
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/dashboard/addClasses'>
+                    
+                    <FaClock /> Add Classes ins
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
+
+            {
+              currentUser.role == "student" ? <> <li>
+              <Link>
+                {" "}
+                <FaClock />
+                My selected class stu{" "}
+              </Link>
             </li>
             <li>
-              <Link> <FaClock/> My Cart</Link>
-            </li>
+                  <Link>
+                    
+                    <FaClock />
+                    My enrolled class stu
+                  </Link>
+                </li>
+
             <li>
-              <Link> <FaWallet/> Payment History</Link>
-            </li>
+              <Link>
+                {" "}
+                <FaWallet /> Payment Student
+              </Link>
+            </li></> : <></>
+            }
+
+            {/* extra for check */}
+            <hr /> <hr /><hr /><hr />
             <li>
-            <Link> <FaClock/> My Classes</Link>
+                  <Link to='/dashboard/addClasses'>
+                    
+                    <FaClock /> Add Classes ins
+                  </Link>
+                </li>
+
+                <li>
+              <Link to="/dashboard/allUsers">
+                {" "}
+                <FaUser /> All Users amdin
+              </Link>
             </li>
+
           </ul>
         </div>
       </div>

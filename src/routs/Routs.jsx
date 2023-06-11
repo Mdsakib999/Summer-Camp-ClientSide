@@ -10,6 +10,8 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers";
+import AddClass from "../Pages/Dashboard/AddClass";
+import WonClasses from "../Pages/Dashboard/WonClasses";
 
 export const router = createBrowserRouter([
   {
@@ -60,8 +62,16 @@ export const router = createBrowserRouter([
         element: <MyCart></MyCart>,
       },
       {
+        path: "addClasses",
+        element: <AddClass></AddClass>,
+      },
+      {
+        path: "singleInsClass",
+        element: <WonClasses></WonClasses>,
+      },
+      {
         path: "allUsers",
-        element: <AllUsers></AllUsers>
+        element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>,
       }
     ],
   },

@@ -10,6 +10,7 @@ const MyCart = () => {
 
     return (
         <div>
+          <h1>I ma open for all ( my cart compo )</h1>
       <button onClick={handleClick}>Click Me</button>
       <div
         style={{ opacity: isDisabled ? 0.5 : 1, pointerEvents: isDisabled ? 'none' : 'auto' }}
