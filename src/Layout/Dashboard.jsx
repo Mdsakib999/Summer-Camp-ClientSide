@@ -63,7 +63,7 @@ const Dashboard = () => {
               <></>
             )}
 
-            {currentUser.role == "Instructor" ? (
+            {currentUser.role === "Instructor" ? (
               <>
                 <li>
                   <Link to='/dashboard/singleInsClass'>
