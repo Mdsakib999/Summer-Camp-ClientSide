@@ -12,6 +12,8 @@ import MyCart from "../Pages/Dashboard/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import AddClass from "../Pages/Dashboard/AddClass";
 import WonClasses from "../Pages/Dashboard/WonClasses";
+import AdminRout from "./AdminRout";
+import AllClasses from "../Pages/Dashboard/AllClasses";
 
 export const router = createBrowserRouter([
   {
@@ -70,8 +72,12 @@ export const router = createBrowserRouter([
         element: <WonClasses></WonClasses>,
       },
       {
+        path: "allClass",
+        element: <AllClasses></AllClasses>,
+      },
+      {
         path: "allUsers",
-        element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>,
+        element: <AdminRout><AllUsers></AllUsers></AdminRout>,
       }
     ],
   },

@@ -53,7 +53,7 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/mycart">
+              <Link to="/dashboard/allClass">
                 {" "}
                 <FaHome /> All classes admin
               </Link>
@@ -107,12 +107,7 @@ const Dashboard = () => {
 
             {/* extra for check */}
             <hr /> <hr /><hr /><hr />
-            <li>
-                  <Link to='/dashboard/addClasses'>
-                    
-                    <FaClock /> Add Classes ins
-                  </Link>
-                </li>
+           
 
                 <li>
               <Link to="/dashboard/allUsers">
@@ -120,6 +115,14 @@ const Dashboard = () => {
                 <FaUser /> All Users amdin
               </Link>
             </li>
+            <li>
+              <Link to="/dashboard/allClass">
+                {" "}
+                <FaHome /> All classes admin
+              </Link>
+            </li>
+
+            {/* --------^^ */}
 
           </ul>
         </div>
