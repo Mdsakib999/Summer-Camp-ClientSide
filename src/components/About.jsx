@@ -24,11 +24,8 @@ const About = () => {
           <p className="text-4xl hover:font-semibold mb-4">
           We provide best quality of training in the camp!!
           </p>
-          <p className="text-slate-500 hover:text-black">
-            "Welcome to the Ultimate Robot Emporium! Unleash Boundless
-            Excitement with Our Spectacular Collection of Robotic Marvels.
-            Explore, Play, and Bring Home Your Perfect Mechanical Companion at
-            RoboKingdom!"
+          <p className="text-slate-200 hover:text-black">
+            "A sports camp is an establishment that provides lodging, meals, and guide services for hunting, fishing, and outdoor recreation and usually consists of a set of "camps" or cabins with a main lodge."
           </p>
         </div>
       </div>

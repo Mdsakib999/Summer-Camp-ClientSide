@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
+import Swal from 'sweetalert2';
 
 const PopularClass = () => {
 
     const {user} = useContext(AuthContext);
     const [currentUser, setCurrentUser] = useState({}); 
+    // const [disabled, setDisabled] = useState('none');
+
     useEffect(() => {
         if (user?.email) {
           fetch(`https://summer-camp-server-coral.vercel.app/allClasser/${user?.email}`)
@@ -12,7 +15,7 @@ const PopularClass = () => {
             .then((data) => {
               console.log(data);
               setCurrentUser(data);
-              console.log(currentUser.role);
+              
             });
         }
       }, [user?.email]);
@@ -27,6 +30,43 @@ const PopularClass = () => {
           setClasses(data);
         })
     },[])
+
+    const handelSelectedClass = (id) =>{
+        console.log(id);
+
+        const saveUser = {
+            className: id.className,
+            instructorName: id.instructorName,
+            price: id.price,
+            availableSeats: id.availableSeats,
+            studentEmail: user?.email,
+            payment: 'no',
+        }
+        fetch('https://summer-camp-server-coral.vercel.app/selectedClass', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Class selected",
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                }
+            })
+        
+
+        
+
+    }
 
 
     return (
@@ -52,14 +92,15 @@ const PopularClass = () => {
                         <p className='font-semibold text-2xl'>$ {singleClass.price}</p>
                     <p className='font-bold'>Price</p>
                     </div>
-                  
-                  
                   </div>
 
                   {
                     currentUser.role === "student" ? <>
-                    <div className="card-actions justify-center mt-6">
-                    <button className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Select Class</button>
+                    <div className="card-actions justify-center mt-6 ">
+                    <button
+                    onClick={()=> handelSelectedClass(singleClass)}
+                     
+                    className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ">Select Class</button>
                   </div>
                     </> : <> <p className='text-white'>.</p> </>
                   }

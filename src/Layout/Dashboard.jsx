@@ -90,7 +90,7 @@ const Dashboard = () => {
               </Link>
             </li>
             <li>
-                  <Link>
+                  <Link to="/dashboard/studentEnrolledClass">
                     
                     <FaClock />
                     My enrolled class stu

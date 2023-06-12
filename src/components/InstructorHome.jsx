@@ -27,8 +27,8 @@ const InstructorHome = () => {
                   <p>Email: {teacher.email}</p>
                   
                   {/* <p className="font-semibold">Instructor: {teacher.sports}</p> */}
-                  <div className="card-actions justify-center">
-                    <Link to="/">
+                  <div className="card-actions justify-start">
+                    <Link to="/instructors">
                     <button className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">See All Instructor</button>
                     </Link>
                   </div>
