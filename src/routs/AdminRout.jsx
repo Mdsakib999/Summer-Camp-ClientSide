@@ -11,7 +11,7 @@ const AdminRout = ({children}) => {
   useEffect(() => {
     setLoading(true)
     if (user?.email) {
-      fetch(`http://localhost:5000/users/${user?.email}`)
+      fetch(`https://summer-camp-server-coral.vercel.app/users/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

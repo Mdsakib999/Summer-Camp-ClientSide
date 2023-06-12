@@ -16,7 +16,7 @@ const AddClass = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch('http://localhost:5000/classes', {
+    fetch('https://summer-camp-server-coral.vercel.app/classes', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

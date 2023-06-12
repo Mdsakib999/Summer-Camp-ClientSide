@@ -40,7 +40,7 @@ const Register = () => {
             role: "student",
           };
 
-          fetch('http://localhost:5000/users', {
+          fetch('https://summer-camp-server-coral.vercel.app/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'
@@ -270,7 +270,7 @@ const Register = () => {
         </div>
 
         <p className="text-red-600 text-center font-bold">{error}</p>
-        
+
         <div className="flex items-center justify-between">
           <button
             className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

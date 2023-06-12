@@ -7,7 +7,7 @@ const AllClasses = () => {
     const[isDisable, setDisable] = useState(false);
 
     useEffect( () => {
-        fetch("http://localhost:5000/classes")
+        fetch("https://summer-camp-server-coral.vercel.app/classes")
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -16,7 +16,7 @@ const AllClasses = () => {
     }, []);
 
     const handelApprove = (id) =>{
-        fetch(`http://localhost:5000/classes/approve/${id}`, {
+        fetch(`https://summer-camp-server-coral.vercel.app/classes/approve/${id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -36,7 +36,7 @@ const AllClasses = () => {
     };
 
     const handelDenied = (id) => {
-        fetch(`http://localhost:5000/classes/denied/${id}`, {
+        fetch(`https://summer-camp-server-coral.vercel.app/classes/denied/${id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())

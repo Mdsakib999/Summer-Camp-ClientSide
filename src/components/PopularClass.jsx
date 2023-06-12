@@ -7,7 +7,7 @@ const PopularClass = () => {
     const [currentUser, setCurrentUser] = useState({}); 
     useEffect(() => {
         if (user?.email) {
-          fetch(`http://localhost:5000/allClasser/${user?.email}`)
+          fetch(`https://summer-camp-server-coral.vercel.app/allClasser/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
@@ -20,7 +20,7 @@ const PopularClass = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes/allClasses')
+        fetch('https://summer-camp-server-coral.vercel.app/classes/allClasses')
         .then(res => res.json())
         .then(data => {
         //   console.log(data);
@@ -41,6 +41,8 @@ const PopularClass = () => {
                   <h2 className="font-bold text-2xl">Class Name: {singleClass.className}</h2>
                   <h2 className="font-bold text-xl">Instructor: {singleClass.instructorName}</h2>
                   <p>Email: {singleClass.instructorEmail}</p>
+                  <p>Status: <span className='text-green-600 font-semibold'>{singleClass.status} </span></p>
+
                   <div className='flex justify-between text-center'>
                     <div className='px-5 py-2 rounded-xl bg-slate-50 shadow-lg hover:bg-gradient-to-r from-blue-500 to-green-400 hover:text-white'>
                         <p className='font-semibold text-2xl'>{singleClass.availableSeats}</p>

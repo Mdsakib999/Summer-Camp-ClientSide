@@ -7,7 +7,7 @@ const WonClasses = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/classes/${user?.email}`)
+      fetch(`https://summer-camp-server-coral.vercel.app/classes/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

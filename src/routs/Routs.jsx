@@ -14,6 +14,7 @@ import AddClass from "../Pages/Dashboard/AddClass";
 import WonClasses from "../Pages/Dashboard/WonClasses";
 import AdminRout from "./AdminRout";
 import AllClasses from "../Pages/Dashboard/AllClasses";
+import StudentEnrolledClass from "../Pages/Dashboard/StudentEnrolledClass";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "singleInsClass",
         element: <WonClasses></WonClasses>,
+      },
+      {
+        path: "studentSelectedClass",
+        element: <StudentEnrolledClass></StudentEnrolledClass>,
       },
       {
         path: "allClass",

@@ -7,7 +7,7 @@ const AllUsers = () => {
   const[isDisable, setDisable] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://summer-camp-server-coral.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         console.log(allUsers);
@@ -22,7 +22,7 @@ const AllUsers = () => {
 
     const yes = confirm('Are you sure?');
     if(yes) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://summer-camp-server-coral.vercel.app/users/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -48,7 +48,7 @@ const AllUsers = () => {
 
   const makeAdmin = (id) =>{
 
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://summer-camp-server-coral.vercel.app/users/admin/${id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())
@@ -74,7 +74,7 @@ const AllUsers = () => {
 
   const makeTeacher = (id) =>{
 
-    fetch(`http://localhost:5000/users/instructor/${id}`, {
+    fetch(`https://summer-camp-server-coral.vercel.app/users/instructor/${id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())
