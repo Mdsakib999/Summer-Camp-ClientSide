@@ -31,7 +31,7 @@ const PopularClass = () => {
 
     return (
         <div>
-            <h1 className='text-center mx-auto w-[35%] text-4xl font-bold border-b-4 pb-3 mb-8'>All instructor classes</h1>
+            <h1 className='text-center mx-auto lg:w-[35%] text-4xl font-bold border-b-4 pb-3 mb-10'>All instructor's Classes</h1>
 
             <div className='mx-auto grid lg:grid-cols-3 gap-8 my-10'>
             {

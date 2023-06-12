@@ -16,7 +16,7 @@ const PopurarInstructors = () => {
 
     return (
         <div className='my-6'>
-            <h1 className='text-center mx-auto w-[35%] text-4xl font-bold border-b-4 pb-3 mb-8'>Our All Instructors</h1>
+            <h1 className='text-center mx-auto lg:w-[35%] text-4xl font-bold border-b-4 pb-3 mb-16'>Our All Instructors</h1>
 
             <div className='mx-auto grid lg:grid-cols-3 gap-8'>
             {

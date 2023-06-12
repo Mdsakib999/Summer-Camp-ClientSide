@@ -59,7 +59,7 @@ const Register = () => {
                 timer: 1500,
               });
               reset();
-              navigate("/");
+              navigate(from, { replace: true });
             }
           });
           
@@ -83,14 +83,31 @@ const Register = () => {
         const loggedUser = result.user;
 
         console.log(loggedUser);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Registered Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(from, { replace: true });
+        const saveUser = {name: loggedUser.displayName, email: loggedUser.email, image: loggedUser.photoURL, role: "student",
+      }
+      fetch('https://summer-camp-server-coral.vercel.app/users', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.insertedId) {
+              
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Registered Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              reset();
+              navigate(from, { replace: true });
+            }
+          });
+  
       })
       .catch((error) => {
         console.log(error.message);

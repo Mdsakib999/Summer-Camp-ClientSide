@@ -61,7 +61,7 @@ const Header = () => {
           />
         </div>
 
-        <p className="font-bold text-2xl cursor-pointer">
+        <p className="font-bold lg:text-2xl cursor-pointer">
           Sports
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
             Summer
