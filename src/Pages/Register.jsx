@@ -22,7 +22,8 @@ const Register = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    createUser(data.email, data.password)
+    if(password.value == ConfirmPassword.value ) {
+      createUser(data.email, data.password)
     .then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -64,7 +65,16 @@ const Register = () => {
           
         })
         .catch((error) => console.log(error));
-    });
+    })
+    .catch(error =>{
+      setError(error.message);
+    })
+
+    }
+    else{
+      alert("password does not match");
+    } 
+    
   };
 
   const handelGoogleSignIn = () => {
@@ -187,7 +197,7 @@ const Register = () => {
           )}
         </div>
 
-        {/* <div className="mb-4">
+        <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="ConfirmPassword"
@@ -202,7 +212,7 @@ const Register = () => {
             {...register("ConfirmPassword", { required: true })}
           />
           {errors.ConfirmPassword !== errors.password && <span className="text-red-500 text-xs italic">Password doesn't match</span>}
-        </div> */}
+        </div>
 
         <div className="mb-4">
           <label className="text-lg font-medium ">Photo Url:</label>
@@ -258,6 +268,9 @@ const Register = () => {
             <option value="others">Others</option>
           </select>
         </div>
+
+        <p className="text-red-600 text-center font-bold">{error}</p>
+        
         <div className="flex items-center justify-between">
           <button
             className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -276,6 +289,7 @@ const Register = () => {
           </Link>
         </p>
       </form>
+      
 
       <div className="text-center">
         <button
