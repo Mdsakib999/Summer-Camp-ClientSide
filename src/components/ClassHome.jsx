@@ -19,7 +19,7 @@ const ClassHome = () => {
         heading={"Popular Classes"}
         subHeading={"Best Enrolled Classes"}
       ></Title>
-      <h1>Class of home</h1>
+      
       <div className="mx-auto grid lg:grid-cols-3 gap-8">
         {homeClasses.map((homeClass) => (
           <div key={homeClass._id} className="card bg-base-100 shadow-xl">

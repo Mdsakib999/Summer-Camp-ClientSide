@@ -6,7 +6,7 @@ const PopularClass = () => {
 
     const {user} = useContext(AuthContext);
     const [currentUser, setCurrentUser] = useState({}); 
-    // const [disabled, setDisabled] = useState('none');
+    // const [mySelect, setMySelect] = useState(false);
 
     useEffect(() => {
         if (user?.email) {
@@ -60,10 +60,11 @@ const PopularClass = () => {
                         showConfirmButton: false,
                         timer: 1500,
                       });
+                      
                 }
             })
         
-
+            
         
 
     }
@@ -101,7 +102,7 @@ const PopularClass = () => {
                       <>
                       <div className="card-actions justify-center mt-6 ">
                     <button
-                    onClick={()=> handelSelectedClass(singleClass)}
+                    onClick={()=> handelSelectedClass(singleClass) }
                      
                     className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ">Select Class</button>
                   </div>

@@ -131,7 +131,7 @@ const AddClass = () => {
           <input
             className="submit-btn px-4 py-2 rounded-md
           text-white font-semibold text-base bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 ... w-[100%] mt-5 "
-            value="Add Toy"
+            value="Add Class"
             type="submit"
           />
         </div>
