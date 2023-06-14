@@ -109,7 +109,7 @@ const Login = () => {
             {...register("password", { required: true })}
           />
           <div className="cursor-pointer absolute right-3 top-9" onClick={() => setShow(!show)}>
-            {show? <i className="fa-solid fa-eye"></i> : <i class="fa-solid fa-eye-slash"></i>}
+            {show? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
           </div>
           {errors.password && (
             <span className="text-red-500 text-xs italic">

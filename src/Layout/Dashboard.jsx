@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Header from "../shared/Header";
 import {
+  FaAddressBook,
+  FaAddressCard,
   FaClock,
   FaHome,
-  FaShoppingCart,
-  FaUser,
-  FaWallet,
+  FaUsers,
 } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider";
 
@@ -49,13 +49,13 @@ const Dashboard = () => {
                 <li>
               <Link to="/dashboard/allUsers">
                 {" "}
-                <FaUser /> All Users amdin
+                <FaUsers /> All Users
               </Link>
             </li>
             <li>
               <Link to="/dashboard/allClass">
                 {" "}
-                <FaHome /> All classes admin
+                <FaHome /> All classes
               </Link>
             </li>
               </>
@@ -67,13 +67,13 @@ const Dashboard = () => {
               <>
                 <li>
                   <Link to='/dashboard/singleInsClass'>
-                    <FaClock /> My Classes ins
+                    <FaAddressCard /> My Classes
                   </Link>
                 </li>
                 <li>
                   <Link to='/dashboard/addClasses'>
                     
-                    <FaClock /> Add Classes ins
+                    <FaAddressBook /> Add Classes
                   </Link>
                 </li>
               </>
@@ -85,23 +85,22 @@ const Dashboard = () => {
               currentUser.role == "student" ? <> <li>
               <Link to='/dashboard/studentSelectedClass'>
                 
-                <FaClock />
-                My selected class stu
+                <i className="fa-solid fa-circle-check"></i>
+                My selected class
               </Link>
             </li>
             <li>
                   <Link to="/dashboard/studentEnrolledClass">
-                    
-                    <FaClock />
-                    My enrolled class stu
+                   
+                    <i className="fa-solid fa-pen-to-square"></i>
+                    My enrolled class details
                   </Link>
                 </li>
 
             <li>
-              <Link>
-                {" "}
-                <FaWallet /> Payment Student
-              </Link>
+              {/* <Link>
+                <i className="fa-solid fa-money-check-dollar"></i> Payment Student
+              </Link> */}
             </li></> : <></>
             }
 
@@ -109,19 +108,7 @@ const Dashboard = () => {
             <hr /> <hr /><hr /><hr />
            
 
-                <li>
-              <Link to="/dashboard/allUsers">
-                {" "}
-                <FaUser /> All Users amdin
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/allClass">
-                {" "}
-                <FaHome /> All classes admin
-              </Link>
-            </li>
-
+                
             {/* --------^^ */}
 
           </ul>

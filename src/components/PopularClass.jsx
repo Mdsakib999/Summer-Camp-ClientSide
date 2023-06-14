@@ -96,12 +96,17 @@ const PopularClass = () => {
 
                   {
                     currentUser.role === "student" ? <>
-                    <div className="card-actions justify-center mt-6 ">
+                    {
+                      singleClass.availableSeats == '0' ? <p className='bg-red-600 text-center text-white font-semibold mt-5 pt-2'>Seats Fill UP</p> : 
+                      <>
+                      <div className="card-actions justify-center mt-6 ">
                     <button
                     onClick={()=> handelSelectedClass(singleClass)}
                      
                     className="bg-gradient-to-r from-blue-500 to-green-400 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ">Select Class</button>
                   </div>
+                      </>
+                    }
                     </> : <> <p className='text-white'>.</p> </>
                   }
                   

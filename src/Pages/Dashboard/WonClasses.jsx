@@ -21,7 +21,7 @@ const WonClasses = () => {
         All classes By An Instructor
       </h1>
       <div className="grid lg:grid-cols-2 gap-6 my-10">
-        {currentUser.map((singleUser) => (
+      {currentUser.map((singleUser) => (
           <div key={singleUser._id} className="card bg-base-100 shadow-xl">
             <figure>
               <img

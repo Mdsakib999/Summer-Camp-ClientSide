@@ -21,7 +21,7 @@ const About = () => {
               The SUMMER SPORT CAMP.
             </span>
           </h1>
-          <p className="text-4xl hover:font-semibold mb-4">
+          <p className="text-4xl mb-4">
           We provide best quality of training in the camp!!
           </p>
           <p className="text-slate-200 hover:text-black">

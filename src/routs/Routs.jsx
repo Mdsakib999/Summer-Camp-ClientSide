@@ -16,6 +16,8 @@ import AdminRout from "./AdminRout";
 import AllClasses from "../Pages/Dashboard/AllClasses";
 import StudentEnrolledClass from "../Pages/Dashboard/StudentEnrolledClass";
 import StudentSelectedClass from "../Pages/Dashboard/StudentSelectedClass";
+import InstructorIndividualClass from "../components/InstructorIndividualClass";
+import Payment from "../Pages/Dashboard/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,11 @@ export const router = createBrowserRouter([
       {
         path: "/instructors",
         element: <PopurarInstructors></PopurarInstructors>,
+      },
+      {
+        path: "/mySelectedClass/:email",
+        element: <PrivateRoute><InstructorIndividualClass></InstructorIndividualClass></PrivateRoute>,
+        loader:({params}) => fetch(`https://summer-camp-server-coral.vercel.app/teacherClass/${params.email}`)
       },
       {
         path: "/login",
@@ -82,12 +89,16 @@ export const router = createBrowserRouter([
         element: <StudentEnrolledClass></StudentEnrolledClass>,
       },
       {
+        path: "payment/:price",
+        element: <Payment></Payment>,
+      },
+      {
         path: "allClass",
-        element: <AllClasses></AllClasses>,
+        element: <AdminRout><AllClasses></AllClasses></AdminRout>,
       },
       {
         path: "allUsers",
-        element: <AllUsers></AllUsers>
+        element: <AdminRout><AllUsers></AllUsers></AdminRout>,
         // element: <AdminRout><AllUsers></AllUsers></AdminRout>,
       }
     ],

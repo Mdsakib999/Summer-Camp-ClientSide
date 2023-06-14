@@ -193,7 +193,7 @@ const Register = () => {
             {show ? (
               <i className="fa-solid fa-eye"></i>
             ) : (
-              <i class="fa-solid fa-eye-slash"></i>
+              <i className="fa-solid fa-eye-slash"></i>
             )}
           </div>
           {errors.password?.type === "required" && (

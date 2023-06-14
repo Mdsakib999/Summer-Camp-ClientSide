@@ -113,7 +113,7 @@ const AllUsers = () => {
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody >
+        <tbody className="font-semibold">
           {/* row 1 */}
           {allUsers.map((allUser, index) => (
             <tr key={allUser._id}>
@@ -135,7 +135,7 @@ const AllUsers = () => {
 
                 </div>
               </td>
-              <td className=""> <button onClick={()=> handelDelete(allUser._id)}><i className="text-2xl fa-solid fa-trash"></i></button> </td>
+              <td className="text-center"> <button onClick={()=> handelDelete(allUser._id)}><i className="text-2xl fa-solid fa-trash"></i></button> </td>
             </tr>
           ))}
         </tbody>
